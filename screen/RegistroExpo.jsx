@@ -1,6 +1,6 @@
 import * as SecureStore from 'expo-secure-store'
 import {useEffect, useState} from "react";
-import {Button, Text, View} from "react-native";
+import {Button, Text, View,StyleSheet   } from "react-native";
 
 const RegistroExpo = () =>{
 
@@ -30,14 +30,50 @@ const RegistroExpo = () =>{
     }
 
     return (
-        <View>
+        <View style={[styles.vista, styles.shadowProp]}>
             <View>
-                <Text>Nombre : {storedNombre}</Text>
-                <Text>Usuario: {storedUsuario}</Text>
-                <Text>Telefono:{storedTelefono} </Text>
-                <Text>Clave: {storedClave}</Text>
+                <Text style={{fontSize: 20, paddingBottom: 40}}> Registro de traidos con la libreria AsynStorage</Text>
+            </View>
+            <View>
+                <Text style={styles.user}>Nombre :</Text>
+                <Text style={styles.getInput}> {storedNombre}</Text>
+                <Text style={styles.user}>Usuario: </Text>
+                <Text style={styles.getInput}>{storedUsuario}</Text>
+                <Text style={styles.user}>Telefono: </Text>
+                <Text style={styles.getInput}>{storedTelefono}</Text>
+                <Text style={styles.user}>Clave:</Text>
+                <Text style={styles.getInput}> {storedClave}</Text>
             </View>
         </View>
     );
 }
+const styles = StyleSheet.create({
+    vista:{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 450,
+        width: '100%',
+        backgroundColor: "white",
+        borderRadius: 8,
+        paddingVertical: 25,
+        paddingHorizontal: 15,
+        marginVertical: 10,
+    },
+    shadowProp: {
+        shadowColor: "#171717",
+        shadowOffset: { width: -2, height: 4 },
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
+    },
+    user:{
+        fontSize: 29,
+        paddingBottom: 5,
+        paddingTop: 18,
+    },
+    getInput:{
+      paddingLeft: 120,
+        borderBottomColor: 'red'
+    },
+});
 export default RegistroExpo;

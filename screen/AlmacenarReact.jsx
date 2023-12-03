@@ -52,7 +52,7 @@ const AlmacenarRact = ({navigation}) =>{
   
         <Button title="Guardar Datos" onPress={storedData} />
 
-            <View>
+            <View style={{paddingTop: 90}}>
                 <Button title={'Ver Datos'} onPress={() => navigation.push('RegistroReact')}/>
             </View>
       </View>
@@ -71,14 +71,6 @@ const style = StyleSheet.create({
         paddingHorizontal: 15,
         width: "100%",
         marginVertical: 10,
-      },
-      vistaDos: {
-        display: "flex",
-        justifyContent: "center",
-        flexDirection: "column",
-        alignItems: "center",
-        width: 320,
-        height: 350,
       },
       title: {
         /*   color: "white", */

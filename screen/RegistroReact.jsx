@@ -1,7 +1,8 @@
-import {Text, View} from "react-native";
+import {Text, View, StyleSheet } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {useEffect, useState} from "react";
 import asyncStorage from "@react-native-async-storage/async-storage/src/AsyncStorage";
+import RegistroExpo from "./RegistroExpo";
 
 const RegistroReact = () =>{
 
@@ -33,22 +34,54 @@ const RegistroReact = () =>{
     },[]);
 
     return (
-        <View>
+        <View style={styles.vista}>
             <View>
-                <Text>Registros alamacenados con asyncStorage</Text>
+                <Text style={{fontSize: 22, paddingBottom: 90 }}>Registros alamacenados con asyncStorage</Text>
             </View>
 
             <View>
-                <Text>nombre : {storedNombre}</Text>
-                <Text>nombre : {storedUsuario}</Text>
-                <Text>nombre : {storedTelefono}</Text>
-                <Text>nombre : {storedClave}</Text>
+                <Text style={styles.user}>nombre : </Text>
+                <Text style={styles.getInput}>{storedNombre}</Text>
+                <Text style={styles.user}>nombre : </Text>
+                <Text style={styles.getInput}>{storedUsuario}</Text>
+                <Text style={styles.user}>nombre : </Text>
+                <Text style={styles.getInput}>{storedTelefono}</Text>
+                <Text style={styles.user}>nombre : </Text>
+                <Text style={styles.getInput}>{storedClave}</Text>
             </View>
 
         </View>
     );
 }
 
-
+const styles = StyleSheet.create({
+    vista:{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 550,
+        width: '100%',
+        backgroundColor: "white",
+        borderRadius: 8,
+        paddingVertical: 25,
+        paddingHorizontal: 15,
+        marginVertical: 10,
+    },
+    shadowProp: {
+        shadowColor: "#171717",
+        shadowOffset: { width: -2, height: 4 },
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
+    },
+    user:{
+        fontSize: 29,
+        paddingBottom: 5,
+        paddingTop: 18,
+    },
+    getInput:{
+        paddingLeft: 120,
+        borderBottomColor: 'red'
+    },
+})
 
 export default RegistroReact;
